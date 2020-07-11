@@ -93,7 +93,7 @@ body {
 
 .portrait-hero__description {
   color: white;
-  font-size: 45px;
+  font-size: 3rem;
 }
 
 .portrait-hero__description strong {
@@ -368,6 +368,23 @@ body {
 }
 
 @media screen and (max-width: 768px) {
+  .portrait-hero__description {
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+  }
+
+  .portrait-hero__image {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    object-fit: cover;
+    filter: opacity(.5);
+  }
+
   .project__content {
     width: auto;
   }
@@ -381,6 +398,10 @@ body {
   .event {
     margin: .625rem 0;
     width: 100%;
+  }
+
+  .portrait-hero {
+    position: relative;
   }
 }
 
@@ -407,6 +428,10 @@ body {
 }
 
 @media screen and (max-width: 480px) {
+  .portrait-hero__description {
+    font-size: 2.5rem;
+  }
+
   .portrait-projects__title {
     font-size: 1.25rem;
     padding: 1.25rem 0 .625rem;
@@ -472,5 +497,7 @@ body {
 }
 
 @media screen and (max-width: 320px) {
-
+  .portrait-hero__description {
+    font-size: 1.75rem;
+  }
 }
