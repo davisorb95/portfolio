@@ -6,14 +6,14 @@ const showHideMenu = () => {
   if (menu) menu.classList.toggle('is-active');
 };
 
-if (mediaQuery.matches) {
-  burgerButton.addEventListener('click', showHideMenu);
-}
-
-mediaQuery.addEventListener('change', (event) => {
+const validationMatch = (event) => {
   if (event.matches) {
     burgerButton.addEventListener('click', showHideMenu);
   } else {
     burgerButton.removeEventListener('click', showHideMenu);
   }
-});
+};
+
+validationMatch(mediaQuery);
+
+mediaQuery.addEventListener('change', (event) => validationMatch(event));
