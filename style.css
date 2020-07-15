@@ -2,6 +2,7 @@
 /*font-family: 'Roboto', sans-serif;*/
 /*font-family: 'MuseoModerno', cursive;*/
 
+
 body {
   font-family: 'Roboto', sans-serif;
   background: linear-gradient(to right, #d3cce3, #e9e4f0);
@@ -28,6 +29,8 @@ body {
   align-items: center;
   flex-wrap: wrap;
   box-shadow: 0 8px 6px -6px black;
+  position: relative;
+  z-index: 100;
 }
 
 .portrait-header__logo {
@@ -329,10 +332,9 @@ body {
 
 .social-media__item {
   margin: 0 10px;
-}
-
-.social-media__item img {
-  height: 3.25rem;
+  color: white;
+  text-decoration: none;
+  font-size: 3rem;
 }
 
 .portrait-footer {
@@ -363,14 +365,63 @@ body {
   color: #f5bd41;
 }
 
+.burger-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .8);
+  color: white;
+  display: none;
+  line-height: 2.5rem;
+  text-align: center;
+  position: fixed;
+  top: 5px;
+  left: 5px;
+  z-index: 300;
+}
+
 @media screen and (max-width: 1024px) {
 
 }
 
 @media screen and (max-width: 768px) {
+  .burger-button {
+    display: block;
+  }
+
+  .portrait-header__menu {
+    position: fixed;
+    top: 0;
+    left: -100vw;
+    bottom: 0;
+    width: 100vw;
+    background-color: rgba(245, 189, 65, 0.9);
+    z-index: 200;
+    padding: 0;
+    flex-direction: column;
+    flex-wrap: wrap;
+    transition: .3s;
+  }
+
+  .portrait-header__menu.is-active{
+    left: 0;
+  }
+
+  .menu__item, .menu__item--button {
+    font-size: 2rem;
+  }
+
+  .menu__item {
+    text-decoration: underline;
+  }
+
+  .portrait-header__logo {
+    margin: 0 auto;
+  }
+
   .portrait-hero__description {
     position: absolute;
-    z-index: 100;
+    z-index: 50;
     top: 50%;
     transform: translateY(-50%);
     margin: 0;
@@ -428,6 +479,10 @@ body {
 }
 
 @media screen and (max-width: 480px) {
+  .menu__item, .menu__item--button {
+    font-size: 1.75rem;
+  }
+
   .portrait-hero__description {
     font-size: 2.5rem;
   }
@@ -486,8 +541,8 @@ body {
     margin: 0 auto;
   }
 
-  .social-media__item img {
-    height: 2.75rem;
+  .social-media__item {
+    font-size: 2.5rem;
   }
 
   .portrait-footer {
@@ -497,7 +552,19 @@ body {
 }
 
 @media screen and (max-width: 320px) {
+  .menu__item, .menu__item--button {
+    font-size: 1.5rem;
+  }
+
   .portrait-hero__description {
     font-size: 1.75rem;
+  }
+
+  .logo__logotype {
+    font-size: 1rem;
+  }
+
+  .logo__slogan {
+    font-size: .75rem;
   }
 }
